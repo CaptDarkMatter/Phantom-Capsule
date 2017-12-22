@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PositionC : MonoBehaviour {
 
-    Vector3 pos;
+	public Vector3 pos;
 
 	// Use this for initialization
 	void Start () {
@@ -13,6 +13,6 @@ public class PositionC : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        pos = transform.position;
+		pos = this.transform.position;
 	}
 }
