@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CameraLocation : MonoBehaviour {
 
-    public static string currentTurn = "playerCradle"; // to be moved to Turn Order later
-    public string Clocation = currentTurn;
+	public Transform[] cameraViews;
+	public float ctransitionSpeed;
+	Transform cameraView;
 
 	// Use this for initialization
 	void Start () {
@@ -14,13 +15,17 @@ public class CameraLocation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        GameObject playerCameraLocation = GameObject.Find("PlayerCameraLocation");
+        /*GameObject playerCameraLocation = GameObject.Find("PlayerCameraLocation");
         GameObject camera = GameObject.Find("Main Camera");
         PositionC cameraPosition = camera.GetComponent <PositionC>();
         PositionC playerPosition = playerCameraLocation.GetComponent<PositionC>();
 
         if (Clocation == "playerCradle"){
             cameraPosition = playerPosition;
-        }
+        }*/
+		if(Input.GetKeyDown(KeyCode.Alpha1)){
+			cameraView = cameraViews[0];
+		}
+		transform.position = Vector3.Lerp(transform.position, cameraView.position, Time.deltaTime * ctransitionSpeed);
     }
 }
